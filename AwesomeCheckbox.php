@@ -6,8 +6,8 @@ use yii\widgets\InputWidget;
 
 class AwesomeCheckbox extends InputWidget
 {
-    const CHECKBOX_TYPE = 'checkbox';
-    const RADIO_TYPE = 'radio';
+    const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_RADIO = 'radio';
 
     const STYLE_DEFAULT = '';
     const STYLE_PRIMARY = 'primary';
@@ -18,7 +18,7 @@ class AwesomeCheckbox extends InputWidget
     const STYLE_LINK = 'link';
 
     public $checked = false;
-    public $type = self::CHECKBOX_TYPE;
+    public $type = self::TYPE_CHECKBOX;
     public $style = self::STYLE_DEFAULT;
 
     public function run(){
