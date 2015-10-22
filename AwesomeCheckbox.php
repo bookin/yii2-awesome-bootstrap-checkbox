@@ -8,7 +8,7 @@ use yii\widgets\InputWidget;
  * Class AwesomeCheckbox
  * @package bookin\awesome\checkbox
  *
- * @property boolean $checked
+ * @property boolean|string|array $checked
  * @property string $type
  * @property array|string $style
  *
@@ -33,14 +33,22 @@ class AwesomeCheckbox extends InputWidget
     public $checked = false;
     public $type = self::TYPE_CHECKBOX;
     public $style = self::STYLE_DEFAULT;
+    public $list = [];
 
     public function run(){
         AwesomeCheckboxAsset::register($this->getView());
         FontAwesomeAsset::register($this->getView());
-        return $this->renderCheckbox();
+        if(!empty($this->list) && is_array($this->list)){
+            return $this->renderList();
+        }else {
+            return $this->renderItem();
+        }
     }
 
-    protected function renderCheckbox(){
+    /**
+     * @return string
+     */
+    protected function renderItem(){
         $html = [];
         $html [] = Html::beginTag('div',['class'=>$this->getClass()]);
             $label = $this->labelContent;
@@ -50,6 +58,27 @@ class AwesomeCheckbox extends InputWidget
             }
         $html [] = Html::endTag('div');
         return implode('',$html);
+    }
+
+    protected function renderList(){
+        $listAction = $this->type.'List';
+        $this->options['item'] = function ($index, $label, $name, $checked, $value) {
+            $action = $this->type;
+            $id = strtolower($index.'-'.str_replace(['[]', '][', '[', ']', ' ', '.'], ['', '-', '-', '', '-', '-'], $name));
+            $html = [];
+            $html[] = Html::beginTag('div',['class'=>$this->type]);
+                $html[] = Html::$action($name, $checked, ['label' => null, 'value' => $value, 'id'=>$id]);
+                $html[] = Html::tag('label', $label, ['for'=>$id]);
+            $html[] = Html::endTag('div');
+            return implode(' ',$html);
+        };
+        if($this->hasModel()) {
+            $listAction = 'active'.ucfirst($listAction);
+            $input = Html::$listAction($this->model, $this->attribute, $this->list, $this->options);
+        }else{
+            $input = Html::$listAction($this->name, $this->checked, $this->list, $this->options);
+        }
+        return $input;
     }
 
     /**
