@@ -65,7 +65,7 @@ class AwesomeCheckbox extends InputWidget
             $action = $this->type;
             $id = strtolower($index.'-'.str_replace(['[]', '][', '[', ']', ' ', '.'], ['', '-', '-', '', '-', '-'], $name));
             $html = [];
-            $html[] = Html::beginTag('div',['class'=>$this->type]);
+            $html[] = Html::beginTag('div',['class'=>$this->getClass()]);
                 $html[] = Html::$action($name, $checked, ['label' => null, 'value' => $value, 'id'=>$id]);
                 $html[] = Html::tag('label', $label, ['for'=>$id]);
             $html[] = Html::endTag('div');
