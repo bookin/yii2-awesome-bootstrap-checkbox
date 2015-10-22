@@ -7,7 +7,7 @@ class AwesomeCheckboxAsset extends AssetBundle
 {
     public $sourcePath = '@bower/awesome-bootstrap-checkbox';
 
-    public $js = [
+    public $css = [
         'awesome-bootstrap-checkbox.css',
     ];
 
