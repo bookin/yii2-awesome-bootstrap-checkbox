@@ -1,6 +1,6 @@
 <?php
 
-namespace bookin\awesome\checkbox;
+namespace bookin\aws\checkbox;
 
 use yii\web\AssetBundle;
 
