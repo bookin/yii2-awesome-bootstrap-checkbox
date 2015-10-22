@@ -2,6 +2,8 @@ Yii2 widget - Awesome Bootstrap Checkbox
 ==========================
 This yii2 extension is a wrapper for the [Awesome Bootstrap Checkbox & Radios plugin](https://github.com/flatlogic/awesome-bootstrap-checkbox)
 
+[![Code Climate](https://codeclimate.com/github/bookin/yii2-awesome-bootstrap-checkbox/badges/gpa.svg)](https://codeclimate.com/github/bookin/yii2-awesome-bootstrap-checkbox)
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/). 
