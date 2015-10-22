@@ -27,7 +27,6 @@ class AwesomeCheckbox extends InputWidget
     const STYLE_INFO = 'info';
     const STYLE_WARNING = 'warning';
     const STYLE_DANGER = 'danger';
-    const STYLE_LINK = 'link';
     const STYLE_CIRCLE = 'circle';
 
     public $checked = false;
