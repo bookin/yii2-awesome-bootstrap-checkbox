@@ -28,6 +28,7 @@ class AwesomeCheckbox extends InputWidget
     const STYLE_WARNING = 'warning';
     const STYLE_DANGER = 'danger';
     const STYLE_CIRCLE = 'circle';
+    const STYLE_INLINE = 'inline';
 
     public $checked = false;
     public $type = self::TYPE_CHECKBOX;
