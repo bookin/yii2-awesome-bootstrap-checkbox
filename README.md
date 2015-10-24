@@ -154,3 +154,6 @@ echo AwesomeCheckbox::widget([
     ]
 ]);
 ```
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bookin/yii2-awesome-bootstrap-checkbox/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
