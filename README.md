@@ -87,13 +87,19 @@ echo $form->field($model, 'attribute')->widget(AwesomeCheckbox::classname(),[
 
 // By name - default checkbox
 echo AwesomeCheckbox::widget([
-    'name'=>'test'
+    'name'=>'test',
+    'options'=>[
+        'label'=>'Checkbox'
+    ]
 ]);
 
 // By name - default radio
 echo AwesomeCheckbox::widget([
     'name'=>'test',
     'type'=>AwesomeCheckbox::TYPE_RADIO,
+    'options'=>[
+        'label'=>'Checkbox'
+    ]
 ]);
 
 // By name - change style 
@@ -101,6 +107,9 @@ echo AwesomeCheckbox::widget([
     'name'=>'test',
     'type'=>AwesomeCheckbox::TYPE_RADIO,
     'style'=>AwesomeCheckbox::STYLE_PRIMARY,
+    'options'=>[
+        'label'=>'Checkbox'
+    ]
 ]);
 
 // By name - circle checkbox with style
@@ -108,12 +117,18 @@ echo AwesomeCheckbox::widget([
     'name'=>'test',
     'type'=>AwesomeCheckbox::TYPE_RADIO,
     'style'=>[AwesomeCheckbox::STYLE_CIRCLE, AwesomeCheckbox::STYLE_PRIMARY],
+    'options'=>[
+        'label'=>'Checkbox'
+    ]
 ]);
 
 // By name - checked
 echo AwesomeCheckbox::widget([
     'name'=>'test',
-    'checked' => true
+    'checked' => true,
+    'options'=>[
+        'label'=>'Checkbox'
+    ]
 ]);
 
 // By name - disabled
@@ -121,7 +136,8 @@ echo AwesomeCheckbox::widget([
     'name'=>'test',
     'checked' => true,
     'options'=>[
-        'disabled'=>true
+        'disabled'=>true,
+        'label'=>'Checkbox'
     ]
 ]);
 
@@ -131,6 +147,9 @@ echo AwesomeCheckbox::widget([
     'list'=>[ // array data
         'id1'=>'item1',
         'id2'=>'item2'
+    ],
+    'options'=>[
+        'label'=>'Checkbox'
     ]
 ]);
 
@@ -141,6 +160,9 @@ echo AwesomeCheckbox::widget([
     'list'=>[ // array data
         'id1'=>'item1',
         'id2'=>'item2'
+    ],    
+    'options'=>[
+        'label'=>'Checkbox'
     ]
 ]);
 
@@ -151,6 +173,9 @@ echo AwesomeCheckbox::widget([
     'list'=>[ // array data
         'id1'=>'item1',
         'id2'=>'item2'
+    ],
+    'options'=>[
+        'label'=>'Checkbox'
     ]
 ]);
 ```
