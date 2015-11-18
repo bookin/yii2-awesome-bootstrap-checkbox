@@ -11,10 +11,12 @@ use yii\widgets\InputWidget;
  * @property boolean|string|array $checked
  * @property string $type
  * @property array|string $style
+ * @property array $wrapperOptions
  *
  * @property string $labelId
  * @property string $labelContent
  * @property string $input
+ * @property array $list
  */
 class AwesomeCheckbox extends InputWidget
 {
@@ -34,6 +36,7 @@ class AwesomeCheckbox extends InputWidget
     public $type = self::TYPE_CHECKBOX;
     public $style = self::STYLE_DEFAULT;
     public $list = [];
+    public $wrapperOptions = [];
 
     public function run(){
         AwesomeCheckboxAsset::register($this->getView());
@@ -50,7 +53,7 @@ class AwesomeCheckbox extends InputWidget
      */
     protected function renderItem(){
         $html = [];
-        $html [] = Html::beginTag('div',['class'=>$this->getClass()]);
+        $html [] = Html::beginTag('div',array_merge(['class'=>$this->getClass()],$this->wrapperOptions));
             $label = $this->labelContent;
             $html[] = $this->input;
             if($label){
@@ -135,6 +138,9 @@ class AwesomeCheckbox extends InputWidget
             }else{
                 $class[] = $this->type.'-'.$this->style;
             }
+        }
+        if(isset($this->wrapperOptions['class']) && !empty($this->wrapperOptions['class'])){
+            $class = array_merge($class, preg_split('/\s+/', $this->wrapperOptions['class']));
         }
         return implode(' ', $class);
     }
