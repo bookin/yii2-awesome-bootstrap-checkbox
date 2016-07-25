@@ -12,6 +12,7 @@ use yii\widgets\InputWidget;
  * @property string $type
  * @property array|string $style
  * @property array $wrapperOptions
+ * @property array $inputOptions
  *
  * @property string $labelId
  * @property string $labelContent
@@ -37,6 +38,7 @@ class AwesomeCheckbox extends InputWidget
     public $style = self::STYLE_DEFAULT;
     public $list = [];
     public $wrapperOptions = [];
+    public $inputOptions;
 
     public function run(){
         AwesomeCheckboxAsset::register($this->getView());
@@ -55,7 +57,7 @@ class AwesomeCheckbox extends InputWidget
         $html = [];
         $html [] = Html::beginTag('div',array_merge(['class'=>$this->getClass()],$this->wrapperOptions));
             $label = $this->labelContent;
-            $html[] = $this->input;
+            $html[] = $this->getInput($this->inputOptions);
             if($label){
                 $html[] = Html::tag('label', $label, ['for'=>$this->labelId]);
             }
@@ -112,9 +114,17 @@ class AwesomeCheckbox extends InputWidget
     /**
      * @return string
      */
-    protected function getInput(){
+    protected function getInput($options){
         $input = '';
         $inputType = ucfirst($this->type);
+        if (isset($options['value'])) {
+            $this->options['value'] = $options['value'];
+            unset($options['value']);
+        }
+        if (isset($options['uncheck'])) {
+            $this->options['uncheck'] = $options['uncheck'];
+            unset($options['uncheck']);
+        }
         if($this->hasModel()){
             $inputType = 'active'.$inputType;
             $input = Html::$inputType($this->model, $this->attribute, $this->options);
