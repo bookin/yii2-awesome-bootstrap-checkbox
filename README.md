@@ -83,6 +83,14 @@ echo $form->field($model, 'attribute')->widget(AwesomeCheckbox::classname(),[
     ]
 ]);
 
+// ActiveForm & model - set value and uncheck
+echo $form->field($model, 'attribute')->widget(AwesomeCheckbox::classname(),[
+    'options'=>[
+        'value'=>5,
+        'uncheck'=>7
+    ]
+]);
+
 
 
 // By name - default checkbox
